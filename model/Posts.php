@@ -25,7 +25,7 @@ class Posts{
                 array_push($post_arr['data'], $post_item);
             }
             // echo '<pre>';
-            echo json_encode($post_arr);
+            return json_encode($post_arr);
             // echo '</pre>';
         }
     }
