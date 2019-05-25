@@ -18,4 +18,13 @@ if(isset($_GET['id'])){
 }
 
 //Get POST data
-$data = json_decode(file_get_contents("php://input"));
+if($data = json_decode(file_get_contents("php://input"))){
+    $title = $data->title;
+    $body = $data->body;
+    $author = $data->author;
+    $category = $data->category;
+
+    echo $title.' :: '.$body.' :: '.$author.' :: '.$category;
+
+    $p_model->postsCreate($title, $body, $author, $category);
+}

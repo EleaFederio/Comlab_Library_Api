@@ -54,8 +54,13 @@ class Posts{
         }
     }
 
-    function postsCreate($user, $title, $body, $category){
-        
+    function postsCreate($title, $body, $author, $category){
+        $query = "INSERT INTO `posts` (`title`, `body`, `author`, `category_id`) VALUES ('{$title}', '{$body}', {$author}, {$category})";
+        if($this->db->connect()->query($query)){
+            echo 'Data saved';
+        }else{
+            echo 'Error';
+        }
     }
 
 }
