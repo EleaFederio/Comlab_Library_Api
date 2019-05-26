@@ -65,7 +65,20 @@ class Posts{
 
     function postsUpdate($title, $body, $author, $category, $id){
         $query = "UPDATE `posts` SET `title` = '{$title}', `body` = '{$body}', `author` = {$author}, `category_id` = {$category} WHERE `id` = {$id}";
-        echo $query;
+        if($this->db->connect()->query($query)){
+            echo 'Data saved';
+        }else{
+            echo 'Error';
+        }
+    }
+
+    function postsDelete($id){
+        $query = "DELETE FROM `posts` WHERE `id` = {$id}";
+        if($this->db->connect()->query($query)){
+            echo 'Data deleted';
+        }else{
+            echo 'Error';
+        }
     }
 
 }
