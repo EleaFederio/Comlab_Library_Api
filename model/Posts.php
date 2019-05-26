@@ -63,6 +63,11 @@ class Posts{
         }
     }
 
+    function postsUpdate($title, $body, $author, $category, $id){
+        $query = "UPDATE `posts` SET `title` = '{$title}', `body` = '{$body}', `author` = {$author}, `category_id` = {$category} WHERE `id` = {$id}";
+        echo $query;
+    }
+
 }
 
 $post = new Posts();
